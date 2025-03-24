@@ -6,14 +6,14 @@
     <title>Marek Sobol Architekt</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Roboto, sans-serif;
             margin: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #ffffff;
+            color: #000000;
         }
         header {
-            background-color: #222;
-            color: white;
+            background-color: #ffffff;
+            color: #000000;
             padding: 20px;
             text-align: center;
             font-size: 2em;
@@ -24,20 +24,28 @@
             justify-content: center;
             padding: 20px;
         }
-        .gallery img {
+        .gallery-item {
+            margin: 10px;
+            text-align: center;
+        }
+        .gallery-item img {
             max-width: 100%;
             height: auto;
-            margin: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
-        .gallery img:hover {
+        .gallery-item img:hover {
             transform: scale(1.05);
         }
+        .caption {
+            margin-top: 5px;
+            font-size: 1em;
+            color: #000000;
+        }
         footer {
-            background-color: #222;
-            color: white;
+            background-color: #ffffff;
+            color: #000000;
             text-align: center;
             padding: 10px;
             font-size: 1em;
@@ -56,13 +64,22 @@
     </header>
 
     <div class="gallery">
-        <img src="2025-03-22_17_21_03-Greenshot.jpg" alt="Projekt 1">
-        <img src="2024_W24_wid2_4_3.jpg" alt="Projekt 2">
-        <img src="2025_03.jpg" alt="Projekt 3">
+        <div class="gallery-item">
+            <img src="2025-03-22_17_21_03-Greenshot.jpg" alt="Dom w Józefowie">
+            <div class="caption">Dom w Józefowie</div>
+        </div>
+        <div class="gallery-item">
+            <img src="2024_W24_wid2_4_3.jpg" alt="wizualizacja">
+            <div class="caption">wizualizacja</div>
+        </div>
+        <div class="gallery-item">
+            <img src="2025_03.jpg" alt="wizualizacja">
+            <div class="caption">wizualizacja</div>
+        </div>
     </div>
 
     <footer>
-        Kontakt: <a href="mailto:msobol@archims.pl" style="color: #4fc3f7;">msobol@archims.pl</a>
+        Kontakt: <a href="mailto:msobol@archims.pl" style="color: #000000; text-decoration: underline;">msobol@archims.pl</a>
     </footer>
 </body>
 </html>
