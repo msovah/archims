@@ -20,12 +20,12 @@
         }
         .gallery {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             padding: 20px;
         }
         .gallery-item {
-            margin: 10px;
+            margin: 10px 0;
             text-align: center;
         }
         .gallery-item img {
@@ -37,7 +37,7 @@
             transition: transform 0.3s;
         }
         .gallery-item img:hover {
-            transform: scale(2);
+            transform: scale(1.5);
         }
         .caption {
             margin-top: 5px;
@@ -52,10 +52,6 @@
             font-size: 1em;
         }
         @media (max-width: 768px) {
-            .gallery {
-                flex-direction: column;
-                align-items: center;
-            }
             .gallery-item img {
                 width: 100%;
                 height: auto;
