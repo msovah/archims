@@ -1,1 +1,86 @@
-backup page
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIMS</title>
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .gallery-item {
+            margin: 10px 0;
+            text-align: center;
+        }
+        .gallery-item img {
+            width: 600px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        /*.gallery-item img:hover {
+            transform: scale(1.4);
+        }*/
+        .caption {
+            margin-top: 5px;
+            font-size: 1em;
+            color: #000000;
+        }
+        footer {
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            font-size: 1em;
+        }
+        @media (max-width: 768px) {
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        ARCHIMS
+    </header>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="AI 009 post mres.jpg" alt="Wizualizacja">
+            <div class="caption">Wizualizacja</div>
+        </div>
+        <div class="gallery-item">
+            <img src="2025_03.jpg" alt="Wizualizacja">
+            <div class="caption">Wizualizacja</div>
+        </div>
+        <div class="gallery-item">
+            <img src="LUDNA.jpg" alt="Koncepcja przedudowy biurowca przy ulicy Ludnej">
+            <div class="caption">Koncepcja przedudowy biurowca przy ulicy Ludnej</div>
+        </div>
+    </div>
+
+    <footer>
+        Kontakt: <a href="mailto:msobol@archims.pl" style="color: #000000; text-decoration: underline;">msobol@archims.pl</a>
+    </footer>
+</body>
+</html>
