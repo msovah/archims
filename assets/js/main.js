@@ -260,10 +260,10 @@
             onPopupOpen: function() { $body.addClass('modal-active'); },
             overlayOpacity: 0,
             popupCloserText: '',
-            popupHeight: 150,
+            popupHeight: 0,
             popupLoaderText: '',
             popupSpeed: 300,
-            popupWidth: 150,
+            popupWidth: 0,
             // Kluczowa zmiana: Selektor Poptrox musi być ogólny, ale inicjacja jest per grupa.
             // W tym przypadku poptrox działa na $this (czyli jednym .thumb)
             // więc selector odnosi się do linków W TYM konkretnym .thumb
@@ -274,7 +274,7 @@
             usePopupForceClose: true,
             usePopupLoader: true,
             usePopupNav: true,
-            windowMargin: 50,
+            windowMargin: (window.innerWidth < 600 ? 2 : 50),
             loop: false, // To jest ważne, żeby nie zawijało
             onSlideNextEnd: function() {
                 // Ta funkcja jest teraz w kontekście pojedynczej galerii projektu
