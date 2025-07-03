@@ -1,0 +1,44 @@
+/* Dodatkowe style do lightboxa z pinch zoom */
+.poptrox-popup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  z-index: 10000;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.poptrox-popup .pic {
+  overflow: visible !important;
+  text-align: center;
+}
+
+.poptrox-popup img {
+  max-width: 100%;
+  height: auto;
+  touch-action: auto !important;
+}
+
+.poptrox-popup .closer {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.poptrox-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.75;
+  z-index: 9999;
+}
