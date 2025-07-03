@@ -274,9 +274,7 @@
             usePopupForceClose: true,
             usePopupLoader: true,
             usePopupNav: true,
-            windowMargin: (window.innerWidth < 600 ? 5 : 50),
-			popupWidth: 0,
-			popupHeight: 0,
+            windowMargin: 50,
             loop: false, // To jest ważne, żeby nie zawijało
             onSlideNextEnd: function() {
                 // Ta funkcja jest teraz w kontekście pojedynczej galerii projektu
