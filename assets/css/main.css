@@ -1653,14 +1653,24 @@ input, select, textarea {
 			}
 
 			#main .thumb > h2 {
-				pointer-events: none;
-				bottom: 1.875em;
-				font-size: 0.8em;
-				left: 2.1875em;
-				margin: 0;
-				position: absolute;
-				z-index: 1;
-			}
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;            /* Przyklej do samego dołu kafelka */
+    left: 0;              /* Przyklej do lewej krawędzi */
+    width: 100%;          /* Rozciągnij na całą szerokość */
+    margin: 0;            /* Usuń domyślne marginesy */
+    
+    /* Wygląd czarnego paska */
+    background-color: rgba(0, 0, 0, 0.8); /* Czarne tło z przezroczystością */
+    padding: 6px 25px;    /* Odstępy: 8px góra/dół (grubość paska), 25px boki */
+    
+    /* Wygląd tekstu */
+    font-size: 0.9em;     /* Rozmiar czcionki */
+    font-weight: 300 !important; /* Wyłączenie pogrubienia (ważne!) */
+    line-height: 1.3;     /* Wysokość linii tekstu */
+    color: #ffffff;
+    z-index: 1;
+}
 
 			#main .thumb > p {
 				display: none;
@@ -2011,40 +2021,45 @@ input, select, textarea {
 
 		}
 
-		@media screen and (max-width: 480px) {
+		/* Zmieniono z 480px na 736px, aby objąć prawie wszystkie telefony */
+@media screen and (max-width: 736px) {
 
-			#main .thumb {
-				-moz-transition-delay: 1.175s;
-				-webkit-transition-delay: 1.175s;
-				-ms-transition-delay: 1.175s;
-				transition-delay: 1.175s;
-				height: calc(40vh - 2em);
-				min-height: 18em;
-				width: 100%;
-			}
+    #main .thumb {
+        -moz-transition-delay: 1.175s;
+        -webkit-transition-delay: 1.175s;
+        -ms-transition-delay: 1.175s;
+        transition-delay: 1.175s;
+        
+        /* Zmiana wysokości: */
+        height: calc(50vh - 2em); /* Zajmie połowę wysokości ekranu */
+        min-height: 25em;         /* Minimalna wysokość (zwiększona z 18em), żeby zdjęcie było duże */
+        
+        /* Zmiana szerokości: */
+        width: 100% !important;   /* Jedna kolumna na całą szerokość */
+    }
 
-				#main .thumb:nth-child(1) {
-					-moz-transition-delay: 0.65s;
-					-webkit-transition-delay: 0.65s;
-					-ms-transition-delay: 0.65s;
-					transition-delay: 0.65s;
-				}
+    #main .thumb:nth-child(1) {
+        -moz-transition-delay: 0.65s;
+        -webkit-transition-delay: 0.65s;
+        -ms-transition-delay: 0.65s;
+        transition-delay: 0.65s;
+    }
 
-				#main .thumb:nth-child(2) {
-					-moz-transition-delay: 0.8s;
-					-webkit-transition-delay: 0.8s;
-					-ms-transition-delay: 0.8s;
-					transition-delay: 0.8s;
-				}
+    #main .thumb:nth-child(2) {
+        -moz-transition-delay: 0.8s;
+        -webkit-transition-delay: 0.8s;
+        -ms-transition-delay: 0.8s;
+        transition-delay: 0.8s;
+    }
 
-				#main .thumb:nth-child(3) {
-					-moz-transition-delay: 0.95s;
-					-webkit-transition-delay: 0.95s;
-					-ms-transition-delay: 0.95s;
-					transition-delay: 0.95s;
-				}
+    #main .thumb:nth-child(3) {
+        -moz-transition-delay: 0.95s;
+        -webkit-transition-delay: 0.95s;
+        -ms-transition-delay: 0.95s;
+        transition-delay: 0.95s;
+    }
 
-		}
+}
 
 /* Footer */
 
@@ -2056,3 +2071,55 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
+/* Stylizacja paska z podpisem - POPRAWIONA */
+.poptrox-popup .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* TŁO: Musimy wyłączyć gradienty szablonu i ustawić czarny pasek */
+    background-image: none !important; 
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    
+    /* POZYCJA TEKSTU: Wymuszamy prawą stronę */
+    text-align: right !important;
+    padding: 3px 40px !important;
+    
+    /* CZCIONKA */
+    color: #ffffff !important;
+    font-size: 1em !important; 
+    font-weight: 300;
+    
+    z-index: 20010;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+/* Dostosowanie dla telefonów */
+@media screen and (max-width: 736px) {
+    .poptrox-popup .caption {
+        font-size: 1.0em !important;
+        padding: 10px 20px !important;
+        display: block !important; /* Szablon domyślnie ukrywa podpisy na tel, to je pokaże */
+    }
+}
+
+/* Usunięcie migającego kursora i obramowania przy klikaniu */
+.poptrox-popup, 
+.poptrox-popup * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none !important;
+    caret-color: transparent;
+}
+
+.poptrox-nav-previous, 
+.poptrox-nav-next,
+.poptrox-closer {
+    outline: 0;
+    cursor: pointer;
+}

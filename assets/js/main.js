@@ -239,21 +239,14 @@
 		// Poptrox.
 			$('.thumb').each(function() {
     var $this = $(this);
-    var projectRel = $this.find('a.image').first().attr('rel'); // Pobierz rel z pierwszego obrazka w danym projekcie
+    var projectRel = $this.find('a.image').first().attr('rel');
 
-    if (projectRel) { // Upewnij się, że rel istnieje
-        // Inicjalizuj Poptrox tylko dla linków z tym konkretnym rel
-        $this.poptrox({ // Użyj $this (czyli danego .thumb) jako kontekstu
+    if (projectRel) {
+        $this.poptrox({
             baseZIndex: 20000,
+            // ZMIANA 1: Prosta funkcja pobierająca tekst z atrybutu data-caption
             caption: function($a) {
-                var s = '';
-                $a.nextAll().each(function() {
-                    // Sprawdź, czy element jest ukryty i ma ten sam rel
-                    if ($(this).is(':hidden') && $(this).attr('rel') === $a.attr('rel')) {
-                        s += this.outerHTML;
-                    }
-                });
-                return s;
+                return $a.attr('data-caption');
             },
             fadeSpeed: 300,
             onPopupClose: function() { $body.removeClass('modal-active'); },
@@ -264,31 +257,16 @@
             popupLoaderText: '',
             popupSpeed: 300,
             popupWidth: 150,
-            // Kluczowa zmiana: Selektor Poptrox musi być ogólny, ale inicjacja jest per grupa.
-            // W tym przypadku poptrox działa na $this (czyli jednym .thumb)
-            // więc selector odnosi się do linków W TYM konkretnym .thumb
             selector: 'a.image',
-            usePopupCaption: false,
+            // ZMIANA 2: Włączamy wyświetlanie podpisów
+            usePopupCaption: true, 
             usePopupCloser: true,
-            usePopupDefaultStyling: false,
+            usePopupDefaultStyling: false, // To zostaje false, bo Multiverse ma własny styl okna
             usePopupForceClose: true,
             usePopupLoader: true,
             usePopupNav: true,
             windowMargin: 50,
-            loop: false, // To jest ważne, żeby nie zawijało
-            onSlideNextEnd: function() {
-                // Ta funkcja jest teraz w kontekście pojedynczej galerii projektu
-                // więc x.trigger("poptrox_close") powinno działać.
-                // Upewnij się, że używasz prawidłowego odniesienia do instancji Poptrox
-                // W tym kontekście, `this` będzie instancją poptrox
-                // ale żeby użyć triggera na głównym elemencie `x`, potrzebujemy go przekazać
-                // lub zmodyfikować sam plik poptrox.min.js jak w poprzednich krokach.
-                // Najprościej będzie użyć poprzedniej modyfikacji w poptrox.min.js
-                // Wtedy nie potrzebujesz nic tutaj.
-            },
-            onSlidePrevEnd: function() {
-                // Analogicznie, nic tu nie trzeba, jeśli masz modyfikację w poptrox.min.js
-            }
+            loop: false
         });
     }
 });
