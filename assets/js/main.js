@@ -272,11 +272,11 @@
 });
 
 			// Hack: Set margins to 0 when 'xsmall' activates.
-				breakpoints.on('<=xsmall', function() {
+				breakpoints.on('<=small', function() {
 					$main[0]._poptrox.windowMargin = 0;
 				});
 
-				breakpoints.on('>xsmall', function() {
+				breakpoints.on('>small', function() {
 					$main[0]._poptrox.windowMargin = 50;
 				});
 
