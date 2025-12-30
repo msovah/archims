@@ -2123,3 +2123,36 @@ input, select, textarea {
     outline: 0;
     cursor: pointer;
 }
+/* WYMUSZENIE DUŻYCH ZDJĘĆ W GALERII NA TELEFONIE */
+@media screen and (max-width: 736px) {
+    .poptrox-popup {
+        /* Resetujemy pozycję wyliczoną przez JavaScript */
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        
+        /* Centrujemy nowoczesną metodą CSS */
+        transform: translate(-50%, -50%) !important;
+        
+        /* Rozciągamy na całą szerokość ekranu */
+        width: 100vw !important; /* 100% szerokości widoku */
+        height: auto !important; /* Wysokość dopasuje się do zdjęcia */
+        
+        /* Usuwamy wszelkie marginesy i cienie */
+        margin: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+
+    .poptrox-popup img {
+        /* Obrazek ma zająć całą dostępną szerokość */
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+    
+    /* Ukrywamy "loader" (kółko ładowania), bo czasem przeszkadza przy takim skalowaniu */
+    .poptrox-popup .loader {
+        display: none !important;
+    }
+}
