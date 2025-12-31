@@ -265,7 +265,7 @@
             usePopupForceClose: true,
             usePopupLoader: true,
             usePopupNav: true,
-            windowMargin: 50,
+            windowMargin: ( $(window).width() < 737 ? 0 : 50 ),
             loop: false
         });
     }
